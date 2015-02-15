@@ -81,4 +81,4 @@ with open(output_path,"w") as fd:
         fd.write("%.6f" % (d[i][j+1])+"\n")
 fd.close()
 finish = time.time()
-print ("Âðåìÿ ðàáîòû ïðîãðàììû â ìèëëèñåêóíäàõ:", float(finish - start)*1000)
+print ("Time of working in milliseconds:", float(finish - start)*1000)
