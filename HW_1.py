@@ -7,7 +7,7 @@ Comand line arguments :
 1. input file name
 2. output file name
 """
-import xml.dom.minidomimport xml.dom.minidom
+import xml.dom.minidom
 from xml.dom.minidom import Node
 import time
 import sys
@@ -81,4 +81,4 @@ with open(output_path,"w") as fd:
         fd.write("%.6f" % (d[i][j+1])+"\n")
 fd.close()
 finish = time.time()
-print ("Время работы программы в миллисекундах:", float(finish - start)*1000)
+print ("Г‚Г°ГҐГ¬Гї Г°Г ГЎГ®ГІГ» ГЇГ°Г®ГЈГ°Г Г¬Г¬Г» Гў Г¬ГЁГ«Г«ГЁГ±ГҐГЄГіГ­Г¤Г Гµ:", float(finish - start)*1000)
