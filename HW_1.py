@@ -7,11 +7,11 @@ Comand line arguments :
 1. input file name
 2. output file name
 """
-import xml.dom.minidomimport xml.dom.minidom
+import xml.dom.minidom
 from xml.dom.minidom import Node
 import time
 import sys
-if len(sys.argv)>2:
+if len(sys.argv) > 2:
     input_path = sys.argv[1]
     output_path = sys.argv[2]
 else:
@@ -22,14 +22,14 @@ nets = dom.getElementsByTagName("net")
 diodes = dom.getElementsByTagName("diode")
 resistors = dom.getElementsByTagName("resistor")
 capactors = dom.getElementsByTagName("capactor")
-e={} 
+e = {}
 for net in nets:
         net_id = net.getAttribute("id")
 for diode in diodes:
     d_n_from = diode.getAttribute("net_from")
-    d_n_to=diode.getAttribute("net_to")
-    d_res=diode.getAttribute("resistance")
-    d_rev_res=diode.getAttribute("reverse_resistance")
+    d_n_to = diode.getAttribute("net_to")
+    d_res = diode.getAttribute("resistance")
+    d_rev_res = diode.getAttribute("reverse_resistance")
     e[d_n_from, d_n_to] = d_res
     e[d_n_to, d_n_from] = d_rev_res
 for resistor in resistors:
@@ -74,11 +74,11 @@ for k in range(N):
                 d[i][j] = 1/(v1 + v2)
             except:
                 d[i][j] = float('Inf')
-with open(output_path,"w") as fd:
+with open(output_path, "w") as fd:
     for i in range(N):
         for j in range(N-1):
             fd.write("%.6f" % (d[i][j])+",")
         fd.write("%.6f" % (d[i][j+1])+"\n")
 fd.close()
 finish = time.time()
-print ("Время работы программы в миллисекундах:", float(finish - start)*1000)
+print ("Time of working in milliseconds:", float(finish - start)*1000)
